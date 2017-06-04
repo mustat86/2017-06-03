@@ -1,0 +1,7 @@
+SELECT flights.id AS flight_no, companies.name AS airline, cities.name AS city, gates.name AS gate, runways.name AS runway, flights.type AS types, flights.date FROM `flights` 
+INNER JOIN companies ON flights.company_id = companies.id
+INNER JOIN cities ON flights.city_id = cities.id
+INNER JOIN gates ON flights.gate_id = gates.id
+INNER JOIN runways ON flights.runway_id = runways.id
+WHERE flights.date > now()
+ORDER BY flights.date DESC
